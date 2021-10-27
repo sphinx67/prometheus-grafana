@@ -192,3 +192,10 @@ import버튼을 눌러준다.
       <img src="./img/prometheus6.png" width='1000px'/>
     </figure>
 </div>
+
+<br/>
+
+※ 참고
+
+https://grafana.com/docs/grafana-cloud/quickstart/docker-compose-linux/
+https://teamsmiley.github.io/2020/01/17/prometheus/
