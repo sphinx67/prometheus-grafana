@@ -25,6 +25,7 @@
 
 - Grafana는 Prometheus에서 정렬한 데이터를 브라우저에 시각화주는 역할을 한다.
 
+</br>
 Step 1. docker-compose.yml 작성
 ---
 <pre><code>version: '3.8'
