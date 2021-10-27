@@ -2,16 +2,32 @@
   overflow-x: auto;
   max-width: 1000px;
 }</style>
-## Node Exporter + Prometheus + Grafana 연동
+## Node-Exporter + Prometheus + Grafana 연동
 ---
 
 본 가이드는 docker-compose환경에서 node-exporter, Prometheus, Grafana를 추가하여
-모니터링 환경을 구축하는 것을 목표로 하고 있습니다.
+모니터링 환경을 구축하는 것을 목표로 한다.
+
+## 1. Node-Exporter
+
+- node-exporter란 UNIX 계열 커널을 가진 하드웨어와 OS릭 등 "시스템 메트릭"을 수집하는 Exporter이다. 
+- Prometheus 재단이 공식적으로 지원하고 있는 Exporter 중 하나이며 Prometheus로 모니터링 시스템을 구축 시 시스템 메트릭 수집을 위해 가장 우선적으로 고려되는 Exporter이기도 하다.
+
+
+## 2. Prometheus
+
+- Prometheus는 이벤트 모니터링 및 Alert에 사용되는 오픈소스 소프트웨어이다. 유연한 쿼리 및 실시간 경고와 함께 HTTP 모델을 사용하여 구축 된 시계열 데이터베이스에 실시간 메트릭을 기록한다.
+
+- 데이터 수집하고, 데이터를 가공하고, 데이터를 분석할 수 있는 쿼리를 제공하는 오픈소스 소프트웨어.
+
+
+## 3. Grafana
+
+- Grafana는 Prometheus에서 정렬한 데이터를 브라우저에 시각화주는 역할을 한다.
 
 Step 1. docker-compose.yml 작성
 ---
-<pre><code>
-version: '3.8'
+<pre><code>version: '3.8'
   
 networks:
   monitoring:
@@ -73,8 +89,7 @@ collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)는 자세히
 <pre><code>volumes:
   prometheus_data: {}</code></pre>
 로컬 디렉토리에 데이터를 저장하기 위해서 volumn을 설정한다. 
-<pre><code>
-volumes:
+<pre><code>volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
       - prometheus_data:/prometheus
 command:
