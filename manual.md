@@ -2,6 +2,7 @@
   overflow-x: auto;
   max-width: 1000px;
 }</style>
+
 ## Node-Exporter + Prometheus + Grafana 연동
 ---
 
@@ -102,6 +103,7 @@ command:
 
 Step 2. prometheus.yml 작성
 ---
+
 <pre><code>global:
   scrape_interval: 15s
 
@@ -134,10 +136,11 @@ localhost:9090으로 접속하여 확인해본다.
     </figure>
 </div>
 prometheus와 node-exporter가 정상적으로 기동중임을 확인 할 수 있다.(1은 성공이라는 의미)
+<br></br>
 
-</br>
-step3. grafana추가
+Step3. grafana추가
 ---
+
 docker-compose.yml의 service에 grafana를 추가한다.
 <pre><code>grafana:
     image: grafana/grafana
